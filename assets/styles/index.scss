@@ -1,1 +1,304 @@
 @import '~bootstrap/scss/bootstrap';
+
+$invisible: rgba(0, 0, 0, 0);
+$secondary-color: #222;
+$primary-color: #efefef;
+
+
+
+main {
+  background: $primary-color;
+  color: $invisible;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+header {
+  animation-delay: 7s;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: disappear;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  a {
+    color: inherit;
+    font-weight: bold;
+
+    :hover {
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    transform: scale(.65);
+  }
+}
+
+a {
+  color: $primary-color;
+
+  :hover {
+    color: $primary-color;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+button {
+  background-color: $invisible;
+  border: $invisible;
+  border-radius: 50%;
+  bottom: 10vh;
+  color: $invisible;
+  position: absolute;
+}
+
+.cta {
+  animation-delay: 5s;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-name: growFont;
+  padding: 7px 15px;
+}
+
+.fade-out {
+  animation-delay: 2s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-name: fadeOut;
+}
+
+.hahahas {
+  color: $secondary-color;
+  position: absolute;
+  top: 25vh;
+
+  div {
+    display: none;
+  }
+}
+
+.jbt-button {
+  animation-delay: 5s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: jbtButton;
+  bottom: 10vh;
+  left: 5vw;
+  position: absolute;
+}
+
+.jumbotron-container {
+  display: none;
+
+  .jumbotron {
+    background-color: $secondary-color;
+    color: $primary-color;
+    flex-direction: column;
+    opacity: .8;
+    text-align: center;
+    width: 80vw;
+
+    .close-out {
+      font-size: 24px;
+      position: absolute;
+      right: 14vw;
+      top: 14vh;
+      }
+
+    .mob-close-out {
+      display: none;
+    }
+    }
+  }
+
+
+.primary {
+  animation-delay: 1s;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-name: primaryAnimation;
+  position: absolute;
+}
+
+.secondary {
+  animation-delay: 2s;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: secondaryAnimation;
+}
+
+@keyframes colorShift {
+
+  0% {
+    background-color: $primary-color;
+    color: $secondary-color;
+  }
+
+  50% {
+    background-color: $secondary-color;
+    color: $primary-color;
+  }
+
+  100% {
+    background-color: $primary-color;
+    color: $secondary-color;
+  }
+}
+
+@keyframes disappear {
+
+  0% {
+    color: $invisible;
+  }
+
+  20% {
+    color: $secondary-color;
+  }
+
+  100% {
+    color: $invisible;
+  }
+}
+
+
+@keyframes fadeOut {
+  0% {
+    color: $secondary-color;
+  }
+
+  100% {
+    color: $invisible;
+  }
+}
+
+@keyframes growFont {
+
+  25% {
+    font-size: 18px;
+  }
+
+  50% {
+    font-size: 18px;
+    font-weight: bold;
+
+  }
+
+  75% {
+    font-size: 18px;
+  }
+}
+
+@keyframes jbtButton {
+  0% {
+    color: $invisible;
+    text-decoration: none;
+  }
+
+  100% {
+    color: $secondary-color;
+    text-decoration: underline;
+  }
+}
+
+@keyframes primaryAnimation {
+
+  0% {
+    color: $invisible;
+    top: 100vh;
+  }
+
+  100% {
+    color: $secondary-color;
+    top: 10vh;
+  }
+}
+
+@keyframes secondaryAnimation {
+
+  0% {
+    background-color: $invisible;
+    color: $invisible;
+    right: 100vw;
+  }
+
+  100% {
+    background-color: $primary-color;
+    color: $secondary-color;
+    right: 5vw;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  h1 {
+    max-width: 75vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  button {
+    transform: scale(.65);
+  }
+
+  h1 {
+    transform: scale(.65);
+  }
+
+  .hahahas {
+    position: absolute;
+    top: 10vh;
+  }
+
+  .jumbotron-container {
+    height: 90vh;
+    width: 90vw;
+  }
+
+  .jumbotron {
+    height: 90vh;
+    margin: 0;
+    width: 100% !important;
+
+    h1 {
+      margin-bottom: -15px;
+      margin-top: -30px;
+      transform: scale(.65);
+      width: 100vw;
+    }
+
+    p {
+      margin-bottom: -15px;
+      margin-top: -15px;
+      transform: scale(.65);
+      width: 100vw;
+    }
+
+    .lead {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    hr {
+      display: none;
+    }
+
+    .close-out {
+      display: none;
+    }
+
+    .mob-close-out {
+      bottom: 10vh;
+      display: block !important;
+      font-weight: bold;
+      margin-top: 15px;
+      position: absolute;
+      text-align: right;
+    }
+  }
+}
