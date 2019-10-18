@@ -1,7 +1,10 @@
 'use strict'
 
+const events = require('./events')
+
 let jokeCount = 0
 let jumbotronDisplayed = false
+const jokesUsed = []
 
 const getJokeSuccess = (response) => {
   jokeCount += 1
@@ -34,7 +37,17 @@ const closeJumbotron = () => {
   }
 }
 
+const checkJoke = (joke) => {
+  if (jokesUsed.includes(joke.id)) {
+    events.getNewJoke()
+  } else {
+    jokesUsed.push(joke.id)
+    return joke
+  }
+}
+
 module.exports = {
+  checkJoke,
   closeJumbotron,
   displayJumbotron,
   getJokeSuccess,
